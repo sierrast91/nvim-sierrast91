@@ -8,7 +8,7 @@ map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
 -- buffers
-map("n", "<leader>x", "<cmd>confirm bd<cr>", { desc = "easy quit" })
+map("n", "<leader>x", "<cmd>confirm bd<cr><cmd>bnext<cr>", { desc = "easy quit" })
 map("n", "<tab>", "<cmd>bnext<cr>", { desc = "next buffer" })
 map("n", "<s-tab>", "<cmd>bprev<cr>", { desc = "previous buffer" })
 -- windows
