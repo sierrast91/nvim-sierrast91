@@ -9,7 +9,11 @@ M.config = {
 	type = "gdb",
 	request = "launch",
 	program = function()
-		return vim.fn.input("path to exe: ", vim.fn.getcwd() .. "/", "file")
+		local delim = "/"
+		if vim.fn.has("win32") then
+			delim = "\\"
+		end
+		return vim.fn.input("path to exe: ", vim.fn.getcwd() .. delim, "file")
 	end,
 	cwd = "${workspaceFolder}",
 }

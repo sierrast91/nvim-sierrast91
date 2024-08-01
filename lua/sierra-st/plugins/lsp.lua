@@ -3,6 +3,9 @@ return {
 	event = { "BufReadPre", "BufNewFile" }, -- "User Filepost"
 	dependencies = {
 		"folke/neodev.nvim",
+		opts = {
+			library = { plugins = { "nvim-dap-ui", "nvim-dap" }, types = true },
+		},
 	},
 	config = function()
 		dofile(vim.g.base46_cache .. "lsp")
@@ -56,8 +59,18 @@ return {
 		}
 
 		local servers = {
-			lua_ls = { settings = { Lua = { diagnostics = { globals = { "vim" } } } } },
-			clangd = {},
+			lua_ls = {
+				settings = {
+					Lua = { diagnostics = {
+						globals = { "vim" },
+						disable = { "missing-fields" },
+					} },
+				},
+			},
+			clangd = {
+				filetypes = { "c", "cpp" },
+				root_dir = lsp.util.root_pattern(".git", "compile_commands.json", "build"),
+			},
 		}
 		for server, config in pairs(servers) do
 			config.on_attach = on_attach
