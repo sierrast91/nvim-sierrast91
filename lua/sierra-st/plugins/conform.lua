@@ -8,12 +8,13 @@ return {
 			lua = { "stylua" },
 			c = { "clang-format" },
 			cmake = { "cmakelang" },
+
 			xml = { "prettierd" },
 			html = { "prettierd" },
 			css = { "prettierd" },
 		},
 		format_on_save = {
-			timeout_ms = 400,
+			timeout_ms = 1000,
 			lsp_format = "fallback",
 		},
 	},

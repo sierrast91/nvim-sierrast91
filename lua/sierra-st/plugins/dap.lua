@@ -49,14 +49,20 @@ return {
 		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
-		-- adaptern and configurations
-		dap.adapters.codelldb = require("sierra-st.dap-config.codelldb").adapter
-		dap.adapters.gdb = require("sierra-st.dap-config.gdb").adapter
-		require("dap-cortex-debug").setup(require("sierra-st.dap-config.cortex-debug").adapter)
-		dap.configurations.c = {
-			require("sierra-st.dap-config.codelldb").config,
-			require("sierra-st.dap-config.gdb").config,
-			require("sierra-st.dap-config.cortex-debug").config,
-		}
+
+		-- adapter and configurations
+		--
+		-- print("dap.configurations:", vim.inspect(dap.configurations))
+		-- local configure = function(M)
+		-- 	-- set adapter
+		-- 	dap.adapters[M.name] = M.adapter
+		-- 	-- insert config
+		-- 	if not dap.configurations[M.language] then
+		-- 		dap.configurations[M.language] = {}
+		-- 	end
+		-- 	table.insert(dap.configurations[M.language] or {}, M.config)
+		-- end
+		-- configure(require("sierra-st.dap-config.gdb"))
+		-- configure(require("sierra-st.dap-config.codelldb"))
 	end,
 }

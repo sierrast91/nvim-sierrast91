@@ -1,6 +1,6 @@
 return {
 	ui = {
-		theme = "ayu_dark",
+		theme = "chadracula",
 		transparency = false,
 		telescope = { style = "bordered" },
 	},

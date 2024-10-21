@@ -71,6 +71,21 @@ return {
 				filetypes = { "c", "cpp" },
 				root_dir = lsp.util.root_pattern(".git", "compile_commands.json", "build"),
 			},
+			html = {
+				filetypes = { "html", "gotmpl", "htmldjango", "erb", "mustache", "jinja", "twig" },
+				root_dir = lsp.util.root_pattern(".git", "go.mod"),
+			},
+			cssls = {},
+			ts_ls = {},
+			tailwindcss = {
+				filetypes = { "html", "tsx", "typescriptreact", "templ", "gotmpl", "pug" },
+				root_dir = lsp.util.root_pattern(".git", "go.mod", "tailwindcss.json"),
+			},
+			gopls = {
+				filetypes = { "go", "gomod", "gowork" },
+				cmd = { "gopls" },
+				root_dir = lsp.util.root_pattern("go.mod", ".git"),
+			},
 		}
 		for server, config in pairs(servers) do
 			config.on_attach = on_attach
