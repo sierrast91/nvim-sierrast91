@@ -1,16 +1,20 @@
 local g = vim.g
 local o = vim.o
 
-g.mapleader = " "
-g.maplocalleader = " "
+g.mapleader = ' '
+g.maplocalleader = ' '
+
+o.wrap = false
+o.linebreak = true
 
 o.showmode = false
 o.laststatus = 3
-o.signcolumn = "yes"
+o.signcolumn = 'yes'
 o.cursorline = true
 o.number = true
 o.numberwidth = 5
 o.scrolloff = 10
+o.columns = 160
 
 o.expandtab = true
 o.tabstop = 2
@@ -24,7 +28,7 @@ o.hlsearch = false
 o.incsearch = true
 
 o.undofile = true
-o.clipboard = "unnamedplus"
+o.clipboard = 'unnamedplus'
 
 o.splitbelow = true
 o.splitright = true

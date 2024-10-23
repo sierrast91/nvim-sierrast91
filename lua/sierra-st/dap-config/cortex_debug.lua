@@ -1,40 +1,27 @@
+local cortex_debug = require 'nvim-cortex-debug'
+
 local M = {}
 
-local cortex_debug = require("dap-cortex-debug")
+M.name = 'cortex-debug'
+M.languages = { 'c', 'cpp' }
+
 M.adapter = {
-	debug = false, --log debug messages,
-	extension_path = vim.fn.stdpath("data") .. "/mason/packages/cortex-debug/extension",
-	lib_extension = nil,
-	node_path = "node",
-	dapui_rtt = true,
-	dap_vscode_filetypes = { "c", "cpp" },
+  name = M.name,
+  type = 'executable',
+  command = 'arm-none-eabi-gdb',
+  args = {},
 }
-M.config = {
-	name = "openocd debug",
-	type = "cortex-debug",
-	request = "launch",
-	servetype = "openocd",
-	serverpath = "openocd",
-	gdpPath = "/usr/bin/gdb-multiarch",
-	toolchainPath = "/usr/bin",
-	toolchainPrefix = "arm-none-eabi",
-	runToEntryPoint = "main",
-	swoConfig = { enabled = true },
-	showDevDebugOutput = false,
-	gdbTarget = "localhost:3333",
-	cwd = "${workspaceFolder}",
-	executable = function()
-		return vim.fn.input("path to exe: ", vim.fn.getcwd() .. "/build/", "file")
-	end,
-	configFiles = { "${workspaceFolder}/openocd.cfg" },
-	rttConfig = {
-		address = "auto",
-		decodesr = {
-			label = "RTT:0",
-			port = 0,
-			type = "console",
-		},
-		enabled = true,
-	},
+M.configs = {
+  {
+    type = M.name,
+    request = 'launch',
+    name = 'launch ' .. M.name,
+    program = function()
+      vim.fn.input('path to execute: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${werkspaceFolder}',
+    stopAtEntry = true,
+  },
 }
+
 return M

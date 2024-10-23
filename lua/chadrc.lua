@@ -1,7 +1,12 @@
 return {
-	ui = {
-		theme = "ayu_dark",
-		transparency = false,
-		telescope = { style = "bordered" },
-	},
+  ui = {
+    theme = 'chadracula',
+    transparency = true,
+    telescope = { style = 'bordered' },
+    base46 = {
+      integrations = {
+        'dap',
+      },
+    },
+  },
 }
