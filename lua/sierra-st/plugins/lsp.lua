@@ -70,6 +70,7 @@ return {
 			clangd = {
 				filetypes = { "c", "cpp" },
 				root_dir = lsp.util.root_pattern(".git", "compile_commands.json", "build"),
+				cmd = { "clangd", "--compile-commands-dir=build" },
 			},
 			html = {
 				filetypes = { "html", "gotmpl", "htmldjango", "erb", "mustache", "jinja", "twig" },
@@ -86,6 +87,7 @@ return {
 				cmd = { "gopls" },
 				root_dir = lsp.util.root_pattern("go.mod", ".git"),
 			},
+			pyright = {},
 		}
 		for server, config in pairs(servers) do
 			config.on_attach = on_attach

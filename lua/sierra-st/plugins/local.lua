@@ -7,4 +7,8 @@ local path = "C:\\Users\\Foras\\dev\\luaLang\\"
 -- 	tt.setup()
 -- end
 
-return {}
+return {
+	dir = path .. "typetest",
+	name = "typetest",
+	opts = {},
+}

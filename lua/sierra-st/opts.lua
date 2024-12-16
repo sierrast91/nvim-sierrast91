@@ -1,9 +1,12 @@
 local g = vim.g
 local o = vim.o
 
+vim.cmd("language en_US")
+
 g.mapleader = " "
 g.maplocalleader = " "
 
+o.shell = "/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe"
 o.showmode = false
 o.laststatus = 3
 o.signcolumn = "yes"
@@ -24,7 +27,6 @@ o.hlsearch = false
 o.incsearch = true
 
 o.undofile = true
-o.clipboard = "unnamedplus"
 
 o.splitbelow = true
 o.splitright = true

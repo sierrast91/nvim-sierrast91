@@ -50,19 +50,23 @@ return {
 			dapui.close()
 		end
 
+		dap.set_log_level("DEBUG")
+
 		-- adapter and configurations
-		--
-		-- print("dap.configurations:", vim.inspect(dap.configurations))
-		-- local configure = function(M)
-		-- 	-- set adapter
-		-- 	dap.adapters[M.name] = M.adapter
-		-- 	-- insert config
-		-- 	if not dap.configurations[M.language] then
-		-- 		dap.configurations[M.language] = {}
-		-- 	end
-		-- 	table.insert(dap.configurations[M.language] or {}, M.config)
-		-- end
-		-- configure(require("sierra-st.dap-config.gdb"))
-		-- configure(require("sierra-st.dap-config.codelldb"))
+		local dapInsert = function(dap_module)
+			dap.adapters[dap_module.name] = dap_module.adapter
+			for _, lang in ipairs(dap_module.languages) do
+				dap.configurations[lang] = dap.configurations[lang] or {}
+				for _, config in ipairs(dap_module.configs) do
+					table.insert(dap.configurations[lang], config)
+				end
+			end
+		end
+		dapInsert(require("sierra-st.dap-config.arm-gdb"))
+		dapInsert(require("sierra-st.dap-config.gdb"))
+		dapInsert(require("sierra-st.dap-config.cpptools"))
+
+		dap.default_external_terminal_command = "cmd"
+		dap.defaults.gdb.log = true
 	end,
 }
