@@ -7,12 +7,12 @@ g.maplocalleader = ' '
 o.wrap = false
 o.linebreak = true
 
-vim.cmd("language en_US")
+vim.cmd 'language en_US.utf-8'
 
-g.mapleader = " "
-g.maplocalleader = " "
-if vim.fn.has("win32")=true then
-o.shell = "/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe"
+g.mapleader = ' '
+g.maplocalleader = ' '
+if vim.fn.has 'win32' == true then
+  o.shell = '/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe'
 end
 o.showmode = false
 o.laststatus = 3

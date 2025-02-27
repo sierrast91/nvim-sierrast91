@@ -7,24 +7,3 @@ autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
-autocmd('FileType', {
-  group = augroup('sy-ft-tmpl', { clear = true }),
-  pattern = '*.tmpl',
-  callback = function()
-    vim.bo.filetype = 'gotempl'
-  end,
-})
-
-autocmd("VimEnter", {
-	group = augroup("EspIdfSetup", { clear = true }),
-	pattern = "*",
-	callback = function()
-		local cwd = vim.fn.getcwd()
-		if vim.fn.filereadable(cwd .. "/sdkconfig") and vim.fn.filereadable(cwd .. "/CMakeLists.txt") then
-			local idf_path = "/Espressif/frameworks/esp-idf-v5.3-2"
-			vim.fn.system("powershell -Command " .. idf_path .. "/export.bat")
-			print("ESP-IDF enviorement configured")
-		end
-	end,
-})
