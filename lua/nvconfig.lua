@@ -1,5 +1,4 @@
 local options = {
-
   base46 = {
     theme = 'onedark', -- default theme
     hl_add = {},
@@ -9,7 +8,6 @@ local options = {
     transparency = false,
     theme_toggle = { 'onedark', 'one_light' },
   },
-
   ui = {
     cmp = {
       icons = true,

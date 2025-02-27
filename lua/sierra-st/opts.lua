@@ -7,6 +7,13 @@ g.maplocalleader = ' '
 o.wrap = false
 o.linebreak = true
 
+vim.cmd("language en_US")
+
+g.mapleader = " "
+g.maplocalleader = " "
+if vim.fn.has("win32")=true then
+o.shell = "/WINDOWS/System32/WindowsPowerShell/v1.0/powershell.exe"
+end
 o.showmode = false
 o.laststatus = 3
 o.signcolumn = 'yes'
@@ -28,7 +35,7 @@ o.hlsearch = false
 o.incsearch = true
 
 o.undofile = true
-o.clipboard = 'unnamedplus'
+o.swapfile = false
 
 o.splitbelow = true
 o.splitright = true
