@@ -19,14 +19,13 @@ map('n', '<C-k>', '<C-w>k', { desc = 'switch window up' })
 -- terminals
 map('t', '<C-x>', '<C-\\><C-N>', { desc = 'terminal escape terminal mode' })
 map({ 'n', 't' }, '<A-h>', function()
-  require('nvchad.term').toggle { pos = 'sp', id = 'htoggleTerm' }
+  require('nvchad.term').toggle { pos = 'sp', id = '' }
 end, { desc = 'terminal new horizontal term' })
 map({ 'n', 't' }, '<A-n>', function()
   require('nvchad.term').toggle { pos = 'sp', id = 'ntoggleTerm' }
 end, { desc = 'terminal new horizontal term' })
 -- nvim-tree
 map('n', '<leader>e', '<cmd>NvimTreeFocus<cr>', {})
-map('n', '<c-n>', '<cmd>NvimTreeToggle<cr>', {})
 -- telescope
 map('n', '<leader>fw', '<cmd>Telescope grep_string<CR>', { desc = 'telescope: grep string' })
 map('n', '<leader>fs', '<cmd>Telescope live_grep<CR>', { desc = 'telescope: live grep' })

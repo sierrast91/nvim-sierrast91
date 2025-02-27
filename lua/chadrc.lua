@@ -1,7 +1,7 @@
 return {
   ui = {
     theme = 'chadracula',
-    transparency = true,
+    transparency = false,
     telescope = { style = 'bordered' },
     base46 = {
       integrations = {

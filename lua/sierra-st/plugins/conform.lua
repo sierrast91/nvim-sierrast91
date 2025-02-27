@@ -1,22 +1,25 @@
 return {
-  "stevearc/conform.nvim",
-  cmd = "ConformInfo",
-  keys = "<leader>fm",
-  event = "BufWritePre",
+  'stevearc/conform.nvim',
+  cmd = 'ConformInfo',
+  keys = '<leader>fm',
+  event = 'BufWritePre',
   opts = {
     formatters_by_ft = {
-      lua = { "stylua" },
-      c = { "clang-format" },
-      typescript = { "prettierd" },
-      html = { "prettierd" },
-      css = { "prettierd" },
+      lua = { 'stylua' },
+      c = { 'clang-format' },
+      typescript = { 'prettierd' },
+      html = { 'prettierd' },
+      css = { 'prettierd' },
     },
     format_on_save = {
       timeout_ms = 400,
-      lsp_format = "fallback",
+      lsp_format = 'fallback',
     },
   },
   config = function(_, opts)
-    require("conform").setup(opts)
+    require('conform').setup(opts)
+    require('conform').formatters['clang-format'] = {
+      prepend_args = { '--style=file:' .. vim.fn.expand '~/.config/.clang-format' },
+    }
   end,
 }

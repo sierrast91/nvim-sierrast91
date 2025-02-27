@@ -41,7 +41,7 @@ return {
         initial_mode = 'normal',
       },
     },
-    extension_list = { 'fzf', 'themes' },
+    extension_list = { 'fzf' },
   },
   config = function(_, opts)
     dofile(vim.g.base46_cache .. 'telescope')

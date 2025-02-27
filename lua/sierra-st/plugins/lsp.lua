@@ -60,7 +60,7 @@ return {
       clangd = {},
       html = {},
       cssls = {},
-      tsserver = {},
+      ts_ls = {},
       tailwindcss = {},
       gopls = {},
     }
